@@ -195,6 +195,7 @@ DEPENDENCIES
   debug
   puma (>= 5.0)
   rails (~> 7.1.2)
+  tiny_tds (~> 2.1)
   tzinfo-data
 
 RUBY VERSION

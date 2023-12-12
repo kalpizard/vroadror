@@ -11,9 +11,11 @@
 default: &default
   adapter: sqlserver
   encoding: utf8
-  username: sa
-  password: <%= ENV["SA_PASSWORD"] %>
-  host: localhost
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  username: <%= ENV['sa'] %>
+  password: <%= ENV["kalpizard1998"] %>
+  host: .\
 
 development:
   <<: *default
@@ -50,4 +52,4 @@ production:
   <<: *default
   database: vroadb_production
   username: vroadb
-  password: <%= ENV["VROADB_DATABASE_PASSWORD"] %>
+  password: <%= ENV["kalpizar1998"] %>
