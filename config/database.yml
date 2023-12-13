@@ -10,13 +10,12 @@
 #
 default: &default
   adapter: sqlserver
-  # encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-  username: <%= ENV['sa'] %>
-  password: <%= ENV["kalpizard1998"] %>
-  host: 192.168.18.64
-  database: vroadb
+  host: 172.25.80.1
+  port: 1433
+  encoding: utf8
+  username: sa
+  password: kalpizard1998
+  mode: dblib
 
 development:
   <<: *default
