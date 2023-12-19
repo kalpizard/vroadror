@@ -1,0 +1,3 @@
+class CongratulationsController < ApplicationController
+
+end

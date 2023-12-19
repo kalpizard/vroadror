@@ -1,0 +1,3 @@
+class DifficultiesController < ApplicationController
+   
+end

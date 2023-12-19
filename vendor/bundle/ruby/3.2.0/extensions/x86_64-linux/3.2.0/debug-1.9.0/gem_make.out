@@ -1,0 +1,19 @@
+current directory: /mnt/c/Users/Dell/vroadapi/vroadb/vendor/bundle/ruby/3.2.0/gems/debug-1.9.0/ext/debug
+/home/kalpizard/.rvm/rubies/ruby-3.2.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /mnt/c/Users/Dell/vroadapi/vroadb/vendor/bundle/ruby/3.2.0/gems/debug-1.9.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231214-5022-ju4gn1 sitelibdir\=./.gem.20231214-5022-ju4gn1 clean
+
+current directory: /mnt/c/Users/Dell/vroadapi/vroadb/vendor/bundle/ruby/3.2.0/gems/debug-1.9.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231214-5022-ju4gn1 sitelibdir\=./.gem.20231214-5022-ju4gn1
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /mnt/c/Users/Dell/vroadapi/vroadb/vendor/bundle/ruby/3.2.0/gems/debug-1.9.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231214-5022-ju4gn1 sitelibdir\=./.gem.20231214-5022-ju4gn1 install
+/usr/bin/install -m 0755 debug.so ./.gem.20231214-5022-ju4gn1/debug
+
+current directory: /mnt/c/Users/Dell/vroadapi/vroadb/vendor/bundle/ruby/3.2.0/gems/debug-1.9.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231214-5022-ju4gn1 sitelibdir\=./.gem.20231214-5022-ju4gn1 clean
