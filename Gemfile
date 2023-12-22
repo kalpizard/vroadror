@@ -14,6 +14,8 @@ gem 'puma', '6.0.0'
 
 gem 'rack-cors'
 
+#
+gem 'devise-jwt'
 gem 'devise'
 
 
