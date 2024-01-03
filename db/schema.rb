@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_19_201848) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_03_011155) do
   create_table "advances", force: :cascade do |t|
     t.datetime "death_line"
     t.float "current_progress"
@@ -46,6 +46,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_19_201848) do
     t.bigint "advance_id", null: false
     t.index ["advance_id"], name: "index_goals_on_advance_id"
     t.index ["user_id"], name: "index_goals_on_user_id"
+  end
+
+  create_table "jwt_denylist", force: :cascade do |t|
+    t.string "jti", null: false
+    t.datetime "exp", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jti"], name: "index_jwt_denylist_on_jti"
   end
 
   create_table "notifications", force: :cascade do |t|
