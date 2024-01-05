@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_19_201848) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_05_201642) do
   create_table "advances", force: :cascade do |t|
     t.datetime "death_line"
     t.float "current_progress"
@@ -28,8 +28,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_19_201848) do
     t.string "congratulation_descript"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_congratulations_on_user_id"
   end
 
   create_table "difficulties", force: :cascade do |t|
@@ -42,10 +40,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_19_201848) do
     t.string "goal_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.bigint "advance_id", null: false
-    t.index ["advance_id"], name: "index_goals_on_advance_id"
-    t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -70,8 +64,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_19_201848) do
     t.integer "puntuation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "subtasks", force: :cascade do |t|
@@ -80,17 +72,23 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_19_201848) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sysdiagrams", primary_key: "diagram_id", id: :integer, force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "principal_id", null: false
+    t.integer "version"
+    t.binary "definition"
+    t.index ["principal_id", "name"], name: "UK_principal_name", unique: true
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.integer "task_name"
     t.string "task_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
     t.bigint "goal_id", null: false
     t.bigint "difficulty_id", null: false
     t.index ["difficulty_id"], name: "index_tasks_on_difficulty_id"
     t.index ["goal_id"], name: "index_tasks_on_goal_id"
-    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "tokens", force: :cascade do |t|
@@ -110,16 +108,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_19_201848) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "congratulations", "users"
-  add_foreign_key "goals", "advances"
-  add_foreign_key "goals", "users"
   add_foreign_key "notifications", "congratulations"
   add_foreign_key "notifications", "users"
   add_foreign_key "preconfigurations", "categories"
   add_foreign_key "preconfigurations", "tasks"
-  add_foreign_key "ratings", "users"
   add_foreign_key "tasks", "difficulties"
   add_foreign_key "tasks", "goals"
-  add_foreign_key "tasks", "users"
   add_foreign_key "tokens", "users"
 end
