@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_05_201642) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_05_203312) do
   create_table "advances", force: :cascade do |t|
     t.datetime "death_line"
     t.float "current_progress"
@@ -43,12 +43,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_05_201642) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.bigint "congratulation_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["congratulation_id"], name: "index_notifications_on_congratulation_id"
-    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "preconfigurations", force: :cascade do |t|
@@ -91,15 +89,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_05_201642) do
     t.index ["goal_id"], name: "index_tasks_on_goal_id"
   end
 
-  create_table "tokens", force: :cascade do |t|
-    t.string "token"
-    t.datetime "expiration_day"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_tokens_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "user_name"
     t.string "user_email"
@@ -109,10 +98,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_05_201642) do
   end
 
   add_foreign_key "notifications", "congratulations"
-  add_foreign_key "notifications", "users"
   add_foreign_key "preconfigurations", "categories"
   add_foreign_key "preconfigurations", "tasks"
   add_foreign_key "tasks", "difficulties"
   add_foreign_key "tasks", "goals"
-  add_foreign_key "tokens", "users"
 end
