@@ -14,10 +14,11 @@ gem 'puma', '6.0.0'
 
 gem 'rack-cors'
 
-#
-gem 'devise-jwt'
-gem 'devise'
 
+gem 'devise'
+gem 'devise-jwt'
+# 'dotenv-rails' is for storing secret key in ENV file
+gem 'dotenv-rails', groups: [:development, :test]
 
 
 
