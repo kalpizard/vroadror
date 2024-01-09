@@ -1,4 +1,4 @@
 class Rating < ApplicationRecord
-    #
-    belongs_to :use
+    
+    belongs_to :user
 end
