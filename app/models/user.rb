@@ -5,4 +5,8 @@ class User < ApplicationRecord
   #        :recoverable, :rememberable, :validatable
   devise :database_authenticatable, :registerable, :timeoutable,
          :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
-end
+
+
+
+
+        end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_09_164726) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_18_190754) do
   create_table "advances", force: :cascade do |t|
     t.datetime "death_line"
     t.float "current_progress"
@@ -103,6 +103,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_164726) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_name"
     t.index ["email"], name: "index_users_on_email", unique: true, where: "([email] IS NOT NULL)"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, where: "([reset_password_token] IS NOT NULL)"
   end
