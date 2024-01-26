@@ -45,7 +45,7 @@ class DifficultiesController < ApplicationController
     end
   
     def difficulty_params
-      params.require(:difficulty).permit(:name)
+      params.require(:difficulty).permit(:level)
     end
 
 

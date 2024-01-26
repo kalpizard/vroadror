@@ -10,12 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_18_190754) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_26_212010) do
   create_table "advances", force: :cascade do |t|
     t.datetime "death_line"
     t.float "current_progress"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "goal_id", null: false
+    t.string "description"
+    t.index ["goal_id"], name: "index_advances_on_goal_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -40,6 +43,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_18_190754) do
     t.string "goal_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
   create_table "jwt_denylist", force: :cascade do |t|
@@ -85,7 +90,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_18_190754) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer "task_name"
+    t.string "task_name"
     t.string "task_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -108,6 +113,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_18_190754) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, where: "([reset_password_token] IS NOT NULL)"
   end
 
+  add_foreign_key "advances", "goals"
+  add_foreign_key "goals", "users"
   add_foreign_key "notifications", "congratulations"
   add_foreign_key "preconfigurations", "categories"
   add_foreign_key "preconfigurations", "tasks"
