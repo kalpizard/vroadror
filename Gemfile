@@ -8,8 +8,19 @@ gem "rails", "~> 7.1.2"
 # Use sqlserver as the database for Active Record
 gem "activerecord-sqlserver-adapter"
 
+gem 'tiny_tds', '~> 2.1'
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", ">= 5.0"
+gem 'puma', '6.0.0'
+
+gem 'rack-cors'
+
+
+gem 'devise'
+gem 'devise-jwt'
+# 'dotenv-rails' is for storing secret key in ENV file
+gem 'dotenv-rails', groups: [:development, :test]
+
+
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
@@ -43,5 +54,6 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
 end
 
